@@ -116,6 +116,17 @@ var product_1 = require("./entity/product");
                     }
                 });
             }); });
+            app.get('/api/products', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+                var products;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, productRepository.find()];
+                        case 1:
+                            products = _a.sent();
+                            return [2 /*return*/, res.send(products)];
+                    }
+                });
+            }); });
             var PORT = 8001;
             console.log("Listening to port: ".concat(PORT));
             app.listen(PORT);

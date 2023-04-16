@@ -63,6 +63,11 @@ createConnection().then(db => {
                 console.log('product deleted');
             });
 
+            app.get('/api/products', async (req: Request, res: Response) => {
+                const products = await productRepository.find();
+                return res.send(products);
+            });
+
             const PORT = 8001;
 
             console.log(`Listening to port: ${PORT}`);
